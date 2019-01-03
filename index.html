@@ -6,10 +6,15 @@
 <body>
 	<a href="./222.html"></a>
 	<script type="text/javascript">
+		window.onload = function(){
+			alert('页面刷新了')
+		}
     window.onpageshow = function(event){
         //event.persisted 判断浏览器是否有缓存, 有为true, 没有为false
         if (event.persisted) {  
-            window.location.reload();
+            alert('可以能刷新')
+        }else{
+        	alert('可以控制')
         }
     }
 </script>
