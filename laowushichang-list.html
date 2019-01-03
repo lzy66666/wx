@@ -191,8 +191,13 @@ window.onload = function(){
     var page = 0;	// 页数
     var size = 5;	// 每页展示5个
     alert($('.correct-project-box').height())
-    $('.correct-project-box').dropload({
-        scrollArea : $('.correct-project-box'),
+    window.onpageshow = function(event){
+        //event.persisted 判断浏览器是否有缓存, 有为true, 没有为false
+        if (event.persisted) {  
+            alert('不执行刷新')
+        }else{
+        	$('.correct-project-box').dropload({
+        scrollArea : window,
         loadDownFn : function(me){
             page++;
             // 拼接HTML
@@ -248,6 +253,9 @@ window.onload = function(){
             });
         }
     });
+        }
+    }
+    
 }
 	
 </script>
