@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>111</title>
+</head>
+<body>
+	<a href="./222.html"></a>
+	<script type="text/javascript">
+    window.onpageshow = function(event){
+        //event.persisted 判断浏览器是否有缓存, 有为true, 没有为false
+        if (event.persisted) {  
+            window.location.reload();
+        }
+    }
+</script>
+</body>
+</html>
