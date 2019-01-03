@@ -2,9 +2,10 @@
 <html>
 <head>
 	<title>111</title>
+	<meta name=”viewport” content=”width=device-width, initial-scale=1, maximum-scale=1″>
 </head>
 <body>
-	<a href="./222.html">列表页面</a>
+	<a href="./222.html" onclick="aa()">列表页面</a>
 	<script type="text/javascript">
 		window.onload = function(){
 			alert('页面刷新了')
@@ -16,6 +17,13 @@
         }else{
         	alert('可以控制')
         }
+    }
+    function aa(){
+    	var state = {
+	        title: "选择学校",
+	        url: "#school" // 这个url可以随便填，只是为了不让浏览器显示的url地址发生变化，对页面其实无影响
+	    };
+	    window.history.pushState(state, state.title, state.url);
     }
 </script>
 </body>
