@@ -6,9 +6,15 @@
 </head>
 <body>
 	<a href="./222.html" onclick="aa()">列表页面</a>
+	<div id="body"></div>
 	<script type="text/javascript">
 		window.onload = function(){
-			alert('页面刷新了')
+			var body = document.getElementById('body');
+			var str = '';
+			for(var i = 0;i<100;i++){
+				str += '<h3>'+i+'</h3>'
+			}
+			body.innerHTML = str;
 		}
     // window.onpageshow = function(event){
     //     //event.persisted 判断浏览器是否有缓存, 有为true, 没有为false
