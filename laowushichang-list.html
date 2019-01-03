@@ -182,7 +182,6 @@ window.onload = function(){
 	$(".juhe-header-search .search-text").showTopSearch({
 		lx_href : "empty.php"
 	});
-	bb()
 	// 下拉筛选
 	$(".juhe-search-tab").slide_ladder();
 	// 侧栏二级分类展开收缩
@@ -196,7 +195,7 @@ window.onload = function(){
 window.onpageshow = function(event){
     //event.persisted 判断浏览器是否有缓存, 有为true, 没有为false
     if (event.persisted) {  
-        alert('不执行刷新')
+        console.log('不执行刷新')
     }else{
     		// 每页展示5个
 	    bb()
