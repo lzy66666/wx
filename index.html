@@ -10,14 +10,14 @@
 		window.onload = function(){
 			alert('页面刷新了')
 		}
-    window.onpageshow = function(event){
-        //event.persisted 判断浏览器是否有缓存, 有为true, 没有为false
-        if (event.persisted) {  
-            alert('可以能刷新')
-        }else{
-        	alert('可以控制')
-        }
-    }
+    // window.onpageshow = function(event){
+    //     //event.persisted 判断浏览器是否有缓存, 有为true, 没有为false
+    //     if (event.persisted) {  
+    //         alert('不执行刷新')
+    //     }else{
+    //     	alert('可以控制')
+    //     }
+    // }
     function aa(){
     	var state = {
 	        title: "选择学校",
