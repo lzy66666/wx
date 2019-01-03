@@ -11,10 +11,13 @@
 		window.onload = function(){
 			var body = document.getElementById('body');
 			var str = '';
-			for(var i = 0;i<100;i++){
-				str += '<h3><a href="./222.html" onclick="aa()">列表页面</a>'+i+'</h3>'
-			}
-			body.innerHTML = str;
+			setTimeout(function(){
+				for(var i = 0;i<100;i++){
+					str += '<h3><a href="./222.html" onclick="aa()">列表页面</a>'+i+'</h3>'
+				}
+				body.innerHTML = str;
+			},2000)
+			
 		}
     // window.onpageshow = function(event){
     //     //event.persisted 判断浏览器是否有缓存, 有为true, 没有为false
