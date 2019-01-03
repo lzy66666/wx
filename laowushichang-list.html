@@ -196,63 +196,65 @@ window.onload = function(){
         if (event.persisted) {  
             alert('不执行刷新')
         }else{
-        	$('.correct-project-box').dropload({
-        scrollArea : window,
-        loadDownFn : function(me){
-            page++;
-            // 拼接HTML
-            var result = '';
-            $.ajax({
-                type: 'GET',
-                url: 'http://ons.me/tools/dropload/json.php?page='+page+'&size='+size,
-                dataType: 'json',
-                success: function(data){
-                	// 返回数据格式
-                	var data = [
-                		{"id":1, "link":"laowushichang-detail.html", "title":"防腐工程", "xqnum":"100", "bmnum":"2000", "gz":"100元/天", "address":"河北省衡水市桃城区", "date":"2018-02-02"},
-                		{"id":2, "link":"laowushichang-detail.html", "title":"防腐工程", "xqnum":"100", "bmnum":"2000", "gz":"100元/天", "address":"河北省衡水市桃城区", "date":"2018-02-02"},
-                		{"id":3, "link":"laowushichang-detail.html", "title":"防腐工程", "xqnum":"100", "bmnum":"2000", "gz":"100元/天", "address":"河北省衡水市桃城区", "date":"2018-02-02"},
-                		{"id":4, "link":"laowushichang-detail.html", "title":"防腐工程", "xqnum":"100", "bmnum":"2000", "gz":"100元/天", "address":"河北省衡水市桃城区", "date":"2018-02-02"},
-                		{"id":5, "link":"laowushichang-detail.html", "title":"防腐工程", "xqnum":"100", "bmnum":"2000", "gz":"100元/天", "address":"河北省衡水市桃城区", "date":"2018-02-02"}
-                	];
-                    var arrLen = data.length;
-                    if(arrLen > 0){
-                        for(var i=0; i<arrLen; i++){
-                            
-                            result+='<div class="pro-item" style="padding-left:0;">'
-								+'<a href="./laowushichang-detail.html" class="item-link" onclick="aa()">查看详情</a>'
-								+'<a href="./laowushichang-detail.html" onclick="aa()">'
-								+'<strong class="item-title">'+data[i].title+i+'</strong>'
-								+'<p class="item-score">共需求人数：<b>'+data[i].xqnum+'</b>  已报名人数：<b>'+data[i].bmnum+'</b><span class="fr">工资：<em class="font-orange">'+data[i].gz+'</em></span></p>'
-								+'</a>'
-								+'<p class="item-diqu">地区：'+data[i].address+'<span class="item-num">用工时间：'+data[i].date+'</span></p>'
-							+'</div>';
-                        }
-                    }else{	// 如果没有数据
-                        me.lock();	// 锁定
-                        me.noData();	// 无数据
-                    }
-                    // 为了测试，延迟1秒加载
-                    setTimeout(function(){
-                        // 插入数据到页面，放到最后面
-                        me.$element.find(".project-items").append(result);
-                        me.$element.find(".project-items").setShrinkSize({
-							oBtn : ".shrinkMoreBtn",
-							oContent : ".shrinkContent",
-							isHeight : 46
-						});
-                        // 每次数据插入，必须重置
-                        me.resetload();
-                    },1000);
-                },
-                error: function(xhr, type){
-                    alert('Ajax error!');
-                    // 即使加载出错，也得重置
-                    me.resetload();
-                }
-            });
-        }
-    });
+        	var page = 0;	// 页数
+		    var size = 5;	// 每页展示5个
+		    $('.correct-project-box').dropload({
+		        scrollArea : window,
+		        loadDownFn : function(me){
+		            page++;
+		            // 拼接HTML
+		            var result = '';
+		            $.ajax({
+		                type: 'GET',
+		                url: 'http://ons.me/tools/dropload/json.php?page='+page+'&size='+size,
+		                dataType: 'json',
+		                success: function(data){
+		                	// 返回数据格式
+		                	var data = [
+		                		{"id":1, "link":"laowushichang-detail.html", "title":"防腐工程", "xqnum":"100", "bmnum":"2000", "gz":"100元/天", "address":"河北省衡水市桃城区", "date":"2018-02-02"},
+		                		{"id":2, "link":"laowushichang-detail.html", "title":"防腐工程", "xqnum":"100", "bmnum":"2000", "gz":"100元/天", "address":"河北省衡水市桃城区", "date":"2018-02-02"},
+		                		{"id":3, "link":"laowushichang-detail.html", "title":"防腐工程", "xqnum":"100", "bmnum":"2000", "gz":"100元/天", "address":"河北省衡水市桃城区", "date":"2018-02-02"},
+		                		{"id":4, "link":"laowushichang-detail.html", "title":"防腐工程", "xqnum":"100", "bmnum":"2000", "gz":"100元/天", "address":"河北省衡水市桃城区", "date":"2018-02-02"},
+		                		{"id":5, "link":"laowushichang-detail.html", "title":"防腐工程", "xqnum":"100", "bmnum":"2000", "gz":"100元/天", "address":"河北省衡水市桃城区", "date":"2018-02-02"}
+		                	];
+		                    var arrLen = data.length;
+		                    if(arrLen > 0){
+		                        for(var i=0; i<arrLen; i++){
+		                            
+		                            result+='<div class="pro-item" style="padding-left:0;">'
+										+'<a href="./laowushichang-detail.html" class="item-link" onclick="aa()">查看详情</a>'
+										+'<a href="./laowushichang-detail.html" onclick="aa()">'
+										+'<strong class="item-title">'+data[i].title+'</strong>'
+										+'<p class="item-score">共需求人数：<b>'+data[i].xqnum+'</b>  已报名人数：<b>'+data[i].bmnum+'</b><span class="fr">工资：<em class="font-orange">'+data[i].gz+'</em></span></p>'
+										+'</a>'
+										+'<p class="item-diqu">地区：'+data[i].address+'<span class="item-num">用工时间：'+data[i].date+'</span></p>'
+									+'</div>';
+		                        }
+		                    }else{	// 如果没有数据
+		                        me.lock();	// 锁定
+		                        me.noData();	// 无数据
+		                    }
+		                    // 为了测试，延迟1秒加载
+		                    setTimeout(function(){
+		                        // 插入数据到页面，放到最后面
+		                        me.$element.find(".project-items").append(result);
+		                        me.$element.find(".project-items").setShrinkSize({
+									oBtn : ".shrinkMoreBtn",
+									oContent : ".shrinkContent",
+									isHeight : 46
+								});
+		                        // 每次数据插入，必须重置
+		                        me.resetload();
+		                    },500);
+		                },
+		                error: function(xhr, type){
+		                    alert('Ajax error!');
+		                    // 即使加载出错，也得重置
+		                    me.resetload();
+		                }
+		            });
+		        }
+		    });
         }
     }
     
