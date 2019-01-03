@@ -192,7 +192,7 @@ window.onload = function(){
     var size = 5;	// 每页展示5个
     alert($('.correct-project-box').height())
     $('.correct-project-box').dropload({
-        scrollArea : window,
+        scrollArea : $('.correct-project-box'),
         loadDownFn : function(me){
             page++;
             // 拼接HTML
