@@ -236,11 +236,11 @@ window.onload = function(){
                     setTimeout(function(){
                         // 插入数据到页面，放到最后面
                         me.$element.find(".project-items").append(result);
-      //                   me.$element.find(".project-items").setShrinkSize({
-						// 	oBtn : ".shrinkMoreBtn",
-						// 	oContent : ".shrinkContent",
-						// 	isHeight : 46
-						// });
+                        me.$element.find(".project-items").setShrinkSize({
+							oBtn : ".shrinkMoreBtn",
+							oContent : ".shrinkContent",
+							isHeight : 46
+						});
                         // 每次数据插入，必须重置
                         me.resetload();
                     },1000);
