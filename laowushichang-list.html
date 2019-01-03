@@ -170,6 +170,8 @@
 <script type="text/javascript" src="js/dropload.js"></script>
 <script type="text/javascript" src="js/picLazyLoad.js"></script>
 <script type="text/javascript">
+	var page = 0;	// 页数
+	    var size = 5;
 window.onload = function(){
 	console.log(1)
 	// 项目标签展开收缩
@@ -190,17 +192,17 @@ window.onload = function(){
 	// 下拉加载更多 dropload
     var page = 0;	// 页数
     var size = 5;	// 每页展示5个
-    window.onpageshow = function(event){
-        //event.persisted 判断浏览器是否有缓存, 有为true, 没有为false
-        if (event.persisted) {  
-            alert('不执行刷新')
-        }else{
-        	var page = 0;	// 页数
-		    var size = 5;	// 每页展示5个
-		    bb()
-        }
-    }
     
+    
+}
+window.onpageshow = function(event){
+    //event.persisted 判断浏览器是否有缓存, 有为true, 没有为false
+    if (event.persisted) {  
+        alert('不执行刷新')
+    }else{
+    		// 每页展示5个
+	    bb()
+    }
 }
 	
 </script>
